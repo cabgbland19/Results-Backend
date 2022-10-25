@@ -1,13 +1,21 @@
+from Modelos.Candidatos import Candidatos
+from Routes.Partido import Partido
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
 import json
 from waitress import serve#expone la aplicacion, servidor web
 from Routes.Mesa import *
+from Routes.Candidato import *
+from Routes.Partido import *
+from Routes.Resultados import *
 app = Flask(__name__)
 cors = CORS(app)
 
 app.register_blueprint(mesas)
+app.register_blueprint(Partido)
+app.register_blueprint(candidatos)
+app.register_blueprint(Resultados)
 
 @app.route("/test",methods=['GET']) #los @ son decorador, "/url"
 def test():
