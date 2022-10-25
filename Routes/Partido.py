@@ -4,10 +4,10 @@ from Controladores.ControladorPartido import ControladorPartido
 miControladorPartido = ControladorPartido()
 Partido=Blueprint('Partido',__name__)
 
-# @Partido.route("/Partido", methods=['GET'])
-# def getPartido():
-#     json = miControladorPartido.index()
-#     return jsonify(json)
+@Partido.route("/Partido", methods=['GET'])
+def getPartido():
+    json = miControladorPartido.index()
+    return jsonify(json)
 
 
 @Partido.route("/Partido", methods=['POST'])
@@ -18,7 +18,7 @@ def crearPartido():
 
 
 @Partido.route("/Partido/<string:id>", methods=['GET'])
-def getPartido(id):
+def getPartidos(id):
     json = miControladorPartido.show(id)
     return jsonify(json)
 

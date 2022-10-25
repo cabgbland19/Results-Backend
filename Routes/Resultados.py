@@ -4,10 +4,10 @@ from Controladores.ControladorResultados import ControladorResultados
 miControladorResultados = ControladorResultados()
 Resultados=Blueprint('Resultados',__name__)
 
-# @Resultados.route("/Resultados", methods=['GET'])
-# def getResultados():
-#     json = miControladorResultados.index()
-#     return jsonify(json)
+@Resultados.route("/Resultados", methods=['GET'])
+def getResultado():
+    json = miControladorResultados.index()
+    return jsonify(json)
 
 @Resultados.route("/Resultados", methods=['POST'])
 def crearResultados():

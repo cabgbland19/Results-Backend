@@ -4,14 +4,14 @@ from Controladores.ControladorCandidatos import ControladorCandidatos
 miControladorCandidatos = ControladorCandidatos()
 candidatos=Blueprint('candidatos',__name__)
 
-# @candidatos.route("/candidatos", methods=['GET'])
-# def getCandidato():
-#     json = miControladorCandidatos.index()
-#     return jsonify(json)
+@candidatos.route("/candidatos", methods=['GET'])
+def getCandidato():
+    json = miControladorCandidatos.index()
+    return jsonify(json)
 
 
 @candidatos.route("/candidatos", methods=['POST'])
-def crearCandidatos():
+def crearCandidatoss():
     data = request.get_json()#
     json = miControladorCandidatos.create(data)
     return jsonify(json)
