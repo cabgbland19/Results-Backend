@@ -4,10 +4,10 @@ from Controladores.ControladorMesa import ControladorMesa
 miControladorMesa = ControladorMesa()
 mesas=Blueprint('mesas',__name__)
 
-# @mesas.route("/mesas", methods=['GET'])
-# def getEstudiantes():
-#     json = miControladorMesa.index()
-#     return jsonify(json)
+@mesas.route("/mesas", methods=['GET'])
+def getEstudiantes():
+    json = miControladorMesa.index()
+    return jsonify(json)
 
 
 @mesas.route("/mesas", methods=['POST'])
