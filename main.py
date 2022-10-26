@@ -1,7 +1,4 @@
-from Modelos.Candidatos import Candidatos
-from Routes.Partido import Partido
 from flask import Flask
-from flask import jsonify
 from flask_cors import CORS
 import json
 from waitress import serve#expone la aplicacion, servidor web
