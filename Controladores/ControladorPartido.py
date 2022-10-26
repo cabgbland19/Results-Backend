@@ -1,3 +1,4 @@
+import json
 from Repositorio.RepositorioPartido import RepositorioPartido
 from Modelos.Partido import Partido
 
@@ -14,8 +15,8 @@ class ControladorPartido():
         return self.RepositorioPartido.save(NuevoPartido)
 
     def show(self, id):
-        Partido = Partido(self.RepositorioPartido.findById(id))
-        return Partido.__dict__
+        partido = Partido(self.RepositorioPartido.findById(id))
+        return partido.__dict__
 
     def update(self, id, infoPartido):
         PartidoActual = Partido(self.RepositorioPartido.findById(id))

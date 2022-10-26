@@ -21,7 +21,7 @@ class ControladorResultados():
         ResultadosActual = Resultados(self.RepositorioResultados.findById(id))
         ResultadosActual.id = infoResultados["id"]
         ResultadosActual.numero_mesa = infoResultados["numero_mesa"]
-        ResultadosActual.id_partido = infoResultados["id_partido"]
+        ResultadosActual.id_partido = infoResultados["id_partido"]#revisar esta linea
         return self.RepositorioResultados.save(ResultadosActual)
 
     def delete(self, id):

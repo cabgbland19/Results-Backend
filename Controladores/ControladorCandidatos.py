@@ -1,5 +1,7 @@
 from Repositorio.RepositorioCandidatos import RepositorioCandidatos
+from Repositorio.RepositorioPartido import RepositorioPartido
 from Modelos.Candidatos import Candidatos
+from Modelos.Partido import Partido
 
 
 class ControladorCandidatos():
@@ -13,9 +15,9 @@ class ControladorCandidatos():
         NuevoCandidato = Candidatos(InfoCandi)
         return self.RepositorioCandidatos.save(NuevoCandidato)
 
-    def show(self, cedula):
-        Candidato = Candidatos(self.RepositorioCandidatos.findById(cedula))
-        return Candidatos.__dict__
+    def show(self, id):
+        candidato = Candidatos(self.RepositorioCandidatos.findById(id))
+        return candidato.__dict__
 
     def update(self, cedula, infoCandidatos):
         CandidatosActual = Candidatos(self.RepositorioCandidatos.findById(cedula))
@@ -27,3 +29,9 @@ class ControladorCandidatos():
 
     def delete(self, cedula):
         return self.RepositorioCandidatos.delete(cedula)
+    
+    def asignarPartido(self, id_candidato, id_partido):
+        nuevoCandidato = Candidatos(self.RepositorioCandidatos.findById(id_candidato))
+        partido = Partido(self.RepositorioPartido.findById(id_partido))
+        nuevoCandidato.partido = partido
+        return self.repositorioMateria.save(nuevoCandidato)
