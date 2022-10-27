@@ -18,7 +18,7 @@ class ControladorCandidatos():
 
     def show(self, cedula):
         Candidato = Candidatos(self.RepositorioCandidatos.findById(cedula))
-        return Candidatos.__dict__
+        return Candidato.__dict__
 
     def update(self, cedula, infoCandidatos):
         CandidatosActual = Candidatos(self.RepositorioCandidatos.findById(cedula))
