@@ -1,4 +1,4 @@
-from flask import jsonify,request,Blueprint
+from flask import Response, jsonify,request,Blueprint
 from Controladores.ControladorMesa import ControladorMesa
 
 miControladorMesa = ControladorMesa()
@@ -14,13 +14,16 @@ def getMesa():
 def crearMesa():
     data = request.get_json()#
     json = miControladorMesa.create(data)
-    return jsonify(json)
+    return Response('{"Mensaje":"Mesa creada correctamente"}',status=201,mimetype='application/json')
 
 
 @mesas.route("/Mesas/<string:id>", methods=['GET'])
 def getMesas(id):
-    json = miControladorMesa.show(id)
-    return jsonify(json)
+    try:
+        json = miControladorMesa.show(id)
+        return jsonify(json)
+    except :
+        return Response('{"mensaje":"No encontrado"}',status=404,mimetype='application/json')
 
 
 @mesas.route("/Mesas/<string:id>", methods=['PUT'])

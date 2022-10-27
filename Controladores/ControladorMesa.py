@@ -1,5 +1,6 @@
 from Repositorio.RepositorioMesa import RepositorioMesa
 from Modelos.Mesa import Mesa
+from flask import Response
 
 
 class ControladorMesa():
@@ -10,7 +11,10 @@ class ControladorMesa():
         return self.repositorioMesa.findAll()
 
     def create(self, infoMesa):
-        nuevaMesa = Mesa(infoMesa)
+        info={"numero":0,"cantidad_inscritos":"0"}
+        nuevaMesa = Mesa(info)
+        nuevaMesa.numero = infoMesa["numero"]
+        nuevaMesa.cantidad_inscritos = infoMesa["cantidad_inscritos"]
         return self.repositorioMesa.save(nuevaMesa)
 
     def show(self, id):
@@ -20,7 +24,7 @@ class ControladorMesa():
     def update(self, id, infoMesa):
         mesaActual = Mesa(self.repositorioMesa.findById(id))
         mesaActual.numero = infoMesa["numero"]
-        mesaActual.cantidadInscritos = infoMesa["cantidad_inscritos"]
+        mesaActual.cantidad_inscritos = infoMesa["cantidad_inscritos"]
         return self.repositorioMesa.save(mesaActual)
 
     def delete(self, id):

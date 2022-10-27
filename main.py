@@ -24,10 +24,12 @@ def loadFileConfig():
     with open('config.json') as f:#with open sirve para abrir archivos que se encuentre en el programa
         data = json.load(f)#load sirve para cargar archivos, loads carga texto
         #print(type(data))
+
     return data
 #print(loadFileConfig())
 
 if __name__=='__main__':
+    # app.run(debug=True)
     dataConfig = loadFileConfig()
     print("Server running : "+"http://"+dataConfig["url-backend"]+":" + str(dataConfig["port"])) #casteo para concardenar el str
     serve(app,host=dataConfig["url-backend"],port=dataConfig["port"])

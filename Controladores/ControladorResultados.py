@@ -39,8 +39,8 @@ class ControladorResultados():
         resultado=Resultados(self.RepositorioResultados.findById(id))
         mesa = Mesa(self.RepositorioMesa.findById(id_mesa))
         candidato = Candidatos(self.RepositorioCandidatos.findById(id_candidato))
-        resultado.estudiante = mesa
-        resultado.materia = candidato
+        resultado.mesa = mesa
+        resultado.candidato = candidato
         return self.RepositorioResultados.save(resultado)
 
     def delete(self, id):
