@@ -1,5 +1,7 @@
 from Repositorio.RepositorioPartido import RepositorioPartido
+from Repositorio.RepositorioCandidatos import RepositorioCandidatos
 from Modelos.Partido import Partido
+from Modelos.Candidatos import Candidatos
 
 
 class ControladorPartido():
@@ -24,4 +26,5 @@ class ControladorPartido():
         return self.RepositorioPartido.save(PartidoActual)
 
     def delete(self, id):
+       
         return self.RepositorioPartido.delete(id)
