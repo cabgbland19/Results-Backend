@@ -23,9 +23,17 @@ class ControladorResultados():
         nuevaResultado.candidato=candidato
         return self.RepositorioResultados.save(nuevaResultado)
 
+<<<<<<< Updated upstream
     def show(self, id):
         resultados = Resultados(self.RepositorioResultados.findById(id))
         return resultados.__dict__
+=======
+
+    def show(self, id):
+        resultados = Resultados(self.RepositorioResultados.findById(id))
+        return resultados.__dict__
+
+>>>>>>> Stashed changes
 
     def update(self, id, infoResultado, id_mesa, id_candidato):
         resultado=Resultados(self.RepositorioResultados.findById(id))
