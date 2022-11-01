@@ -12,6 +12,11 @@ class ControladorPartido():
         return self.RepositorioPartido.findAll()
 
     def create(self, infoPartido):
+        try:
+            if infoPartido["nombre"]==True and infoPartido["lema"]==True:
+                pass
+        except:
+            return {"msg":"Faltan datos por llenar"}
         NuevoPartido = Partido(infoPartido)
         return self.RepositorioPartido.save(NuevoPartido)
 

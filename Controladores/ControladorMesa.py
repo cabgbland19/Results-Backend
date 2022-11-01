@@ -11,6 +11,11 @@ class ControladorMesa():
         return self.repositorioMesa.findAll()
 
     def create(self, infoMesa):
+        try:
+            if infoMesa["numero"]==True and infoMesa["cantidad_inscritos"]==True:
+                pass
+        except:
+            return {"msg":"Faltan datos por llenar"}
         info={"numero":0,"cantidad_inscritos":"0"}
         nuevaMesa = Mesa(info)
         nuevaMesa.numero = infoMesa["numero"]
