@@ -13,12 +13,11 @@ class ControladorCandidatos():
         return self.RepositorioCandidatos.findAll()
 
     def create(self, InfoCandi):
-        print(InfoCandi)
-        # for x in InfoCandi:
-        #     if x == "cedula" or x == "numero_resolucion" or x == "nombre" or x == "apellido":
-        #         pass
-        #     else:
-        #         return {"msg":"Hay campos no permitidos"}
+        for x in InfoCandi:
+            if x == "cedula" or x == "numero_resolucion" or x == "nombre" or x == "apellido":
+                pass
+            else:
+                return {"msg":"Hay campos no permitidos"}
         try:
             if InfoCandi["numero_resolucion"]==True and InfoCandi["cedula"]==True and InfoCandi["nombre"]==True and InfoCandi["apellido"]==True:
                 pass
