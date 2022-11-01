@@ -12,6 +12,11 @@ class ControladorPartido():
         return self.RepositorioPartido.findAll()
 
     def create(self, infoPartido):
+        for x in infoPartido:
+            if x == "nombre" or x == "lema":
+                pass
+            else:
+                return {"msg":"Hay campos no permitidos"}
         try:
             if infoPartido["nombre"]==True and infoPartido["lema"]==True:
                 pass

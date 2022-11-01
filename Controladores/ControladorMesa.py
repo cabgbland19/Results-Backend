@@ -11,6 +11,11 @@ class ControladorMesa():
         return self.repositorioMesa.findAll()
 
     def create(self, infoMesa):
+        for x in infoMesa:
+            if x == "numero" or x == "cantidad_inscritos":
+                pass
+            else:
+                return {"msg":"Hay campos no permitidos"}
         try:
             if infoMesa["numero"]==True and infoMesa["cantidad_inscritos"]==True:
                 pass
