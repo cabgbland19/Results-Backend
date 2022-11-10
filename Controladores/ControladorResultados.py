@@ -28,19 +28,13 @@ class ControladorResultados():
         resultados = Resultados(self.RepositorioResultados.findById(id))
         return resultados.__dict__
 
-
-    def show(self, id):
-        resultados = Resultados(self.RepositorioResultados.findById(id))
-        return resultados.__dict__
-
-
-
-    def update(self, id, infoResultado, id_mesa, id_candidato):
+    def update(self, id, id_mesa,infoResultado, id_candidato):
         resultado=Resultados(self.RepositorioResultados.findById(id))
         mesa = Mesa(self.RepositorioMesa.findById(id_mesa))
         candidato = Candidatos(self.RepositorioCandidatos.findById(id_candidato))
         resultado.mesa = mesa
         resultado.candidato = candidato
+        resultado.votos = infoResultado["cantidad_votos"]
         return self.RepositorioResultados.save(resultado)
 
     def delete(self, id):

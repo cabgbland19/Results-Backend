@@ -21,9 +21,9 @@ def crearResultados(id_mesa, id_candidato):
     return jsonify(json)
 
 @Resultados.route("/Resultados/<string:id_resultados>/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods=['PUT'])
-def modificarResultados(id_resultado ,id_mesa ,id_candidato):
+def modificarResultados(id_resultado ,id_mesa,infoResultado ,id_candidato):
     data = request.get_json()
-    json = miControladorResultados.update(id_resultado, id_mesa, id_candidato)
+    json = miControladorResultados.update(id_resultado, id_mesa,infoResultado, id_candidato)
     return jsonify(json)
 
 
