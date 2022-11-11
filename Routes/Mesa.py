@@ -14,7 +14,7 @@ def getMesa():
 def crearMesa():
     data = request.get_json()#
     json = miControladorMesa.create(data)
-    return Response('{"Mensaje":"Mesa creada correctamente"}',status=201,mimetype='application/json')
+    return  jsonify(json)
 
 
 @mesas.route("/Mesas/<string:id>", methods=['GET'])
@@ -37,3 +37,8 @@ def modificarMesa(id):
 def eliminarMesa(id):
     json = miControladorMesa.delete(id)
     return jsonify(json)
+#@mesas.route("/Mesas/<string:id>/Candidato/<string:id_Candidato>",methods=['PUT'])
+#def asignarPartidoACandidato(id, id_Candidato):
+ #   data = request.get_json()
+  #  json=miControladorMesa.asignarcandidato(id, id_Candidato, data)
+   # return jsonify(json)

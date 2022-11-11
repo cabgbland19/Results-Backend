@@ -31,3 +31,7 @@ def modificarResultados(id_resultado ,id_mesa,infoResultado ,id_candidato):
 def eliminarResultados(id):
     json = miControladorResultados.delete(id)
     return jsonify(json)
+@Resultados.route("/votos-mesa/<string:id_candidato>", methods=['GET'])
+def votosMesa(id_candidato):
+    json = miControladorResultados.votosPorMesa(id_candidato)
+    return jsonify(json)
